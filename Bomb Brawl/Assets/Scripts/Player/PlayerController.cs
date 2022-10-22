@@ -9,26 +9,39 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float moveSpeed;
     [SerializeField] float minStrikeSpeed = 6;
     [SerializeField] float strikeDelay = 1;
+    [SerializeField] float strikeRange = 2.5f;
     [SerializeField] float dodgeDelay = 1;
     [SerializeField] float knockbackStunLength = 0.5f;
+    [SerializeField] float dodgeDuration = 1f;
+    [SerializeField] float fuseDuration = 60f;
+    [SerializeField] float dodgeFuseDepletionAmount = 1;
 
     Rigidbody2D body;
+    CircleCollider2D collider;
 
     float timeToNextStrike = 0;
     float timeToNextDodge = 0;
 
     bool knockbackActive = false;
+    bool dodgeActive = false;
+    bool isDead;
 
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
+        collider = GetComponentInChildren<CircleCollider2D>();
     }
 
     // Update is called once per frame
     void Update()
     {
-        if (!knockbackActive)
+        if (fuseDuration <= 0 && !isDead)
+        {
+            Die();
+        }
+
+        if (!knockbackActive && !dodgeActive && !isDead)
         {
             Move();
 
@@ -36,6 +49,10 @@ public class PlayerController : MonoBehaviour
 
             CheckDodge();
         }
+
+        fuseDuration -= Time.deltaTime;
+
+        print(fuseDuration);
     }
 
     void Move()
@@ -108,9 +125,9 @@ public class PlayerController : MonoBehaviour
         //Detects all colliders within striking range
         if (strikePressed && CanStrike())
         {
-            transform.DOPunchScale(new Vector3(0.5f, 0.5f, 0.5f), 0.4f, 1, 1);
+            transform.DOPunchScale(new Vector3(0.75f, 0.75f, 0.75f), 0.4f, 1, 1);
 
-            Collider2D[] collidersHit = Physics2D.OverlapCircleAll(transform.position, 2);
+            Collider2D[] collidersHit = Physics2D.OverlapCircleAll(transform.position, strikeRange);
 
             List<Collider2D> ballsHit = new List<Collider2D>();
             List<Collider2D> playersHit = new List<Collider2D>();
@@ -168,8 +185,63 @@ public class PlayerController : MonoBehaviour
 
         if (dodgePressed && CanDodge())
         {
-            //Do a dodge
+            dodgeActive = true;
+
+            gameObject.layer = LayerMask.NameToLayer("Intangible");
+            collider.gameObject.layer = LayerMask.NameToLayer("Intangible");
+
+            Vector2 dodgeDirection = (body.velocity).normalized;
+
+            StartCoroutine(Dodge(dodgeDirection * (moveSpeed * 3)));
         }
+    }
+
+    void Die()
+    {
+        AnimationManager.Instance.Death(playerNum);
+
+        print($"Player {playerNum} Has Exploded!");
+
+        isDead = true;
+    }
+
+    IEnumerator Dodge(Vector2 dodgeVel)
+    {
+        if (dodgeVel.magnitude == 0)
+        {
+            dodgeVel = new Vector2(0, -1f) * (moveSpeed * 3);
+        }
+
+        ModifyFuseDuration(-dodgeFuseDepletionAmount);
+
+        Vector2 startVel = dodgeVel;
+
+        float elaspedTime = 0;
+
+        if (Mathf.Abs(startVel.y) > Mathf.Abs(startVel.x))
+        {
+            transform.DOPunchScale(new Vector3(-0.5f, 1f, 0), dodgeDuration);
+        }
+        else
+        {
+            transform.DOPunchScale(new Vector3(1f, -0.5f, 0), dodgeDuration);
+        }
+
+        while (elaspedTime <= dodgeDuration)
+        {
+            body.velocity = Vector3.Lerp(startVel, Vector3.zero, elaspedTime / dodgeDuration);
+
+            elaspedTime += Time.deltaTime;
+
+            yield return null;
+        }
+
+        dodgeActive = false;
+
+        yield return null;
+
+        gameObject.layer = LayerMask.NameToLayer("Player");
+        collider.gameObject.layer = LayerMask.NameToLayer("Player");
     }
 
     bool CanStrike()
@@ -201,6 +273,11 @@ public class PlayerController : MonoBehaviour
         knockbackActive = true;
 
         StartCoroutine(Knockback(direction * initKnockSpeed));
+    }
+
+    public void ModifyFuseDuration(float amount)
+    {
+        fuseDuration += amount;
     }
 
     IEnumerator Knockback(Vector2 initKnockVel)
