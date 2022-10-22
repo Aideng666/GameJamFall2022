@@ -325,6 +325,10 @@ PrefabInstance:
       value: Player 2
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -381,12 +385,28 @@ PrefabInstance:
       value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: dodgeDelay
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: strikeDelay
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: strikeRange
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: dodgeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: minStrikeSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_TagString
@@ -407,7 +427,7 @@ GameObject:
   - component: {fileID: 1247000400}
   - component: {fileID: 1247000403}
   - component: {fileID: 1247000404}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Ball
   m_TagString: Ball
   m_Icon: {fileID: 0}
@@ -1072,6 +1092,10 @@ PrefabInstance:
       value: Player 1
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Layer
+      value: 8
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_TagString
       value: Player
       objectReference: {fileID: 0}
@@ -1124,12 +1148,28 @@ PrefabInstance:
       value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: dodgeDelay
+      value: 0.75
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: strikeDelay
       value: 0.5
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: strikeRange
+      value: 2.5
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: dodgeDuration
+      value: 0.25
+      objectReference: {fileID: 0}
+    - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: minStrikeSpeed
       value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Layer
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_TagString
