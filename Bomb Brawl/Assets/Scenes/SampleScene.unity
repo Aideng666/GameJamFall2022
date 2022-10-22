@@ -427,7 +427,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: strikeRange
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: fuseDuration
@@ -440,6 +440,18 @@ PrefabInstance:
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: minStrikeSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 3537329436751050002, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 8944fd2f5a705de45a489afac255b2c0, type: 2}
+    - target: {fileID: 7661156445227633453, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 549127292, guid: 6afb0e7907bdf2f40aef47bf0199d002, type: 3}
+    - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Name
+      value: Sprite
       objectReference: {fileID: 0}
     - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_Layer
@@ -1276,7 +1288,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: strikeRange
-      value: 2.5
+      value: 3.5
       objectReference: {fileID: 0}
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: fuseDuration
@@ -1289,6 +1301,10 @@ PrefabInstance:
     - target: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: minStrikeSpeed
       value: 12
+      objectReference: {fileID: 0}
+    - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Name
+      value: Sprite
       objectReference: {fileID: 0}
     - target: {fileID: 7801273898453338855, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_Layer
