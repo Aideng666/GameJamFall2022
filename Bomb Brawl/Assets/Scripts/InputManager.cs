@@ -19,9 +19,8 @@ public class InputManager : MonoBehaviour
     private void Awake()
     {
         Instance = this;
-        
-        playerInput.actions.FindActionMap("Player1").Enable();
-        playerInput.actions.FindActionMap("Player2").Enable();
+
+        playerInput = GetComponent<PlayerInput>();
 
         moveAction1 = playerInput.actions["Move"];
         strikeAction1 = playerInput.actions["Strike"];

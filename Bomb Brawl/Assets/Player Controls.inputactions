@@ -2,7 +2,7 @@
     "name": "Player Controls",
     "maps": [
         {
-            "name": "Player1",
+            "name": "Player",
             "id": "13f9f6a4-77a7-4c39-b17d-40311736704a",
             "actions": [
                 {
@@ -27,6 +27,33 @@
                     "name": "Dodge",
                     "type": "Button",
                     "id": "98821cca-75a4-4e97-9434-a0f8c9d2299e",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Move2",
+                    "type": "Value",
+                    "id": "5da5d914-1a08-4bec-89ba-d91b878bedab",
+                    "expectedControlType": "Vector2",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Strike2",
+                    "type": "Button",
+                    "id": "0f4a35d6-d4d9-4987-8048-874f4a922667",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": true
+                },
+                {
+                    "name": "Dodge2",
+                    "type": "Button",
+                    "id": "dd0a49e6-074f-4bd4-b4ce-eba00d4e1586",
                     "expectedControlType": "Button",
                     "processors": "",
                     "interactions": "",
@@ -143,45 +170,10 @@
                     "action": "Dodge",
                     "isComposite": false,
                     "isPartOfComposite": false
-                }
-            ]
-        },
-        {
-            "name": "Player2",
-            "id": "ca6d3b1c-9ef4-4329-a96b-33110bada848",
-            "actions": [
-                {
-                    "name": "Move2",
-                    "type": "Value",
-                    "id": "b2fb8e98-704a-450a-9d2d-a1ff34a0768c",
-                    "expectedControlType": "Vector2",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
                 },
-                {
-                    "name": "Strike2",
-                    "type": "Button",
-                    "id": "6594dbdd-46cd-45b4-9d92-2172d803cb78",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                },
-                {
-                    "name": "Dodge2",
-                    "type": "Button",
-                    "id": "45938f21-f0b1-40e8-9ebc-d61fd07f2642",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": true
-                }
-            ],
-            "bindings": [
                 {
                     "name": "",
-                    "id": "08a25df5-6580-4a8c-8a71-4b60acb7f80e",
+                    "id": "67613d35-706d-4dcd-9fd7-deffdc450975",
                     "path": "<Keyboard>/p",
                     "interactions": "",
                     "processors": "",
@@ -192,7 +184,7 @@
                 },
                 {
                     "name": "",
-                    "id": "ba97d62a-1b1a-49c3-9947-2a5467d00f07",
+                    "id": "a939f76f-cb80-490a-8f93-9d7730e656c7",
                     "path": "<Gamepad>/buttonSouth",
                     "interactions": "",
                     "processors": "",
@@ -203,7 +195,7 @@
                 },
                 {
                     "name": "",
-                    "id": "1ce8ccf6-7d8e-4e5d-b77a-dae9bff35aad",
+                    "id": "1fb93913-6c15-47db-83fa-7c06e6343338",
                     "path": "<Gamepad>/leftStick",
                     "interactions": "",
                     "processors": "StickDeadzone",
@@ -214,7 +206,7 @@
                 },
                 {
                     "name": "Arrow Keys",
-                    "id": "819a3f6e-d4c0-4aec-a39f-f59357fe5b59",
+                    "id": "990c3cb3-b2d4-433a-8366-773efd8911dd",
                     "path": "2DVector",
                     "interactions": "",
                     "processors": "",
@@ -225,7 +217,7 @@
                 },
                 {
                     "name": "up",
-                    "id": "22e16872-b1f7-4b1d-a991-2510052a338d",
+                    "id": "e8a47102-67d7-4f75-9882-444d8c9a64d0",
                     "path": "<Keyboard>/upArrow",
                     "interactions": "",
                     "processors": "",
@@ -236,7 +228,7 @@
                 },
                 {
                     "name": "down",
-                    "id": "700aa1a5-d639-4b61-9441-c22653157beb",
+                    "id": "bc900983-822a-4a21-a7ed-265960cb59d6",
                     "path": "<Keyboard>/downArrow",
                     "interactions": "",
                     "processors": "",
@@ -247,7 +239,7 @@
                 },
                 {
                     "name": "left",
-                    "id": "30a7c655-fb08-4393-9f65-aabf98a08737",
+                    "id": "27c9f61c-7769-45bb-b2d3-53f0e79cf33b",
                     "path": "<Keyboard>/leftArrow",
                     "interactions": "",
                     "processors": "",
@@ -258,7 +250,7 @@
                 },
                 {
                     "name": "right",
-                    "id": "51ae7a11-10cd-4611-b47b-1adadfa8d0c4",
+                    "id": "bd8c4b0d-b1dc-4f89-9435-02156885c9bb",
                     "path": "<Keyboard>/rightArrow",
                     "interactions": "",
                     "processors": "",
@@ -269,7 +261,7 @@
                 },
                 {
                     "name": "",
-                    "id": "49c356b1-1c1b-440b-8827-18e50be4e806",
+                    "id": "8d942a87-cfe5-4014-b011-73df5ff7ac21",
                     "path": "<Gamepad>/buttonWest",
                     "interactions": "",
                     "processors": "",
@@ -280,7 +272,7 @@
                 },
                 {
                     "name": "",
-                    "id": "dcb6294b-a817-44cf-b4ea-2d25585773e8",
+                    "id": "ca539f9f-11b5-4ea5-bc63-db6b68671362",
                     "path": "<Keyboard>/o",
                     "interactions": "",
                     "processors": "StickDeadzone",
