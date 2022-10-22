@@ -159,6 +159,7 @@ public class PlayerController : MonoBehaviour
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * ballsHit[i].GetComponent<Ball>().GetSpeed();
                 }
             }
+            AudioManager.Instance.Play("Boing");
 
             //Strikes players that were hit
             for (int i = 0; i < playersHit.Count; i++)
@@ -166,6 +167,7 @@ public class PlayerController : MonoBehaviour
                 Vector2 knockbackDirection = (playersHit[i].transform.position - transform.position).normalized;
 
                 playersHit[i].transform.parent.GetComponent<PlayerController>().ApplyKnockback(knockbackDirection, minStrikeSpeed);
+
             }
         }
     }
@@ -199,6 +201,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         AnimationManager.Instance.Death(playerNum);
+        AudioManager.Instance.Play("Die");
 
         print($"Player {playerNum} Has Exploded!");
 
@@ -207,6 +210,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dodge(Vector2 dodgeVel)
     {
+        AudioManager.Instance.Play("Dodge");
         if (dodgeVel.magnitude == 0)
         {
             dodgeVel = new Vector2(0, -1f) * (moveSpeed * 3);
