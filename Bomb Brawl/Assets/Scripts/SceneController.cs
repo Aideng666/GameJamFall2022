@@ -37,4 +37,8 @@ public class SceneController : MonoBehaviour
         return SceneManager.GetActiveScene().buildIndex;
     }
 
+    public void Quit()
+    {
+        Application.Quit();
+    }
 }
