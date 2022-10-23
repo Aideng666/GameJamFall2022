@@ -2786,7 +2786,7 @@ MonoBehaviour:
   - {fileID: 1247000403}
   - {fileID: 1469730589}
   - {fileID: 1310218188}
-  startingFuseDuration: 10
+  startingFuseDuration: 30
   p1HP: {fileID: 200248288}
   p2HP: {fileID: 316300711}
 --- !u!1001 &2110552946
