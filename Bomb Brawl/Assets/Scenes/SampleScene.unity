@@ -746,7 +746,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1194722073}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: LoadScene
         m_Mode: 3
@@ -1100,6 +1100,30 @@ PrefabInstance:
       propertyPath: m_Controller
       value: 
       objectReference: {fileID: 9100000, guid: 8944fd2f5a705de45a489afac255b2c0, type: 2}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.b
+      value: 0.8078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.g
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key0.r
+      value: 0.6784314
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.b
+      value: 0.8078432
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.g
+      value: 0.04705883
+      objectReference: {fileID: 0}
+    - target: {fileID: 4145764241619544435, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+      propertyPath: m_Parameters.colorGradient.key1.r
+      value: 0.6784314
+      objectReference: {fileID: 0}
     - target: {fileID: 7661156445227633453, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
       propertyPath: m_Sprite
       value: 
@@ -1118,6 +1142,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+--- !u!1 &729468514 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+  m_PrefabInstance: {fileID: 729468513}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &772316942
 GameObject:
   m_ObjectHideFlags: 0
@@ -1203,7 +1232,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
   m_PrefabInstance: {fileID: 729468513}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 729468514}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b755d443b520cc45a4e63285cf511f9, type: 3}
@@ -1423,50 +1452,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!1 &1194722072
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1194722074}
-  - component: {fileID: 1194722073}
-  m_Layer: 0
-  m_Name: SceneManager
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!114 &1194722073
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194722072}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ac6990e110c70c1438d923f795900844, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!4 &1194722074
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1194722072}
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_RootOrder: 8
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!4 &1247000402 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 7467151583970000301, guid: 26efc68b77a9234419bffe99b89c4662, type: 3}
@@ -1587,7 +1572,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1194722073}
+      - m_Target: {fileID: 0}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
         m_MethodName: Quit
         m_Mode: 1
@@ -2423,7 +2408,7 @@ MonoBehaviour:
   m_CorrespondingSourceObject: {fileID: 3344104183906437029, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
   m_PrefabInstance: {fileID: 3344104185433335801}
   m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
+  m_GameObject: {fileID: 3344104185433335802}
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 7b755d443b520cc45a4e63285cf511f9, type: 3}
@@ -2634,6 +2619,8 @@ GameObject:
   - component: {fileID: 2073265710}
   - component: {fileID: 2073265711}
   - component: {fileID: 2073265712}
+  - component: {fileID: 2073265713}
+  - component: {fileID: 2073265714}
   m_Layer: 0
   m_Name: Game Manager
   m_TagString: Untagged
@@ -2789,6 +2776,38 @@ MonoBehaviour:
   startingFuseDuration: 60
   p1HP: {fileID: 200248288}
   p2HP: {fileID: 316300711}
+--- !u!114 &2073265713
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073265706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ac6990e110c70c1438d923f795900844, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &2073265714
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2073265706}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 116c387a659ab624d98c57b25b3608bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  powers:
+  - {fileID: 704416526336755956, guid: b86ddd92939828045b2017565eca08e0, type: 3}
+  - {fileID: 1921962667266210911, guid: f2bc5136e9ee4204e8d6ce6436bc77df, type: 3}
+  - {fileID: 8255277105747135621, guid: 643091b2c46d55643b5b24d8ae9ed109, type: 3}
+  players:
+  - {fileID: 3344104185433335802}
+  - {fileID: 729468514}
+  spawnDelay: 10
 --- !u!1001 &2110552946
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -2980,6 +2999,11 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+--- !u!1 &3344104185433335802 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 3344104183906437025, guid: 85b7f988648938e48ad1ab9b00133855, type: 3}
+  m_PrefabInstance: {fileID: 3344104185433335801}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &7467151584881101567
 PrefabInstance:
   m_ObjectHideFlags: 0

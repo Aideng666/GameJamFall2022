@@ -7,7 +7,7 @@ public class PlayerController : MonoBehaviour
 {
     [SerializeField] int playerNum; // can only be 1 or 2
     [SerializeField] float moveSpeed;
-    [SerializeField] float minStrikeSpeed = 6;
+    [SerializeField] float minStrikeSpeed;
     [SerializeField] float strikeDelay = 1;
     [SerializeField] float strikeRange = 2.5f;
     [SerializeField] float dodgeDelay = 1;
@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour
 
     Rigidbody2D body;
     CircleCollider2D collider;
+    TrailRenderer dodgeTrail;
 
     float timeToNextStrike = 0;
     float timeToNextDodge = 0;
@@ -33,6 +34,9 @@ public class PlayerController : MonoBehaviour
     {
         body = GetComponent<Rigidbody2D>();
         collider = GetComponentInChildren<CircleCollider2D>();
+        dodgeTrail = GetComponentInChildren<TrailRenderer>();
+
+        dodgeTrail.enabled = false;
     }
 
     // Update is called once per frame
@@ -127,6 +131,7 @@ public class PlayerController : MonoBehaviour
         if (strikePressed && CanStrike())
         {
             transform.DOPunchScale(new Vector3(0.75f, 0.75f, 0.75f), 0.4f, 1, 1);
+            GetComponentInChildren<ParticleSystem>().Play();
 
             Collider2D[] collidersHit = Physics2D.OverlapCircleAll(transform.position, strikeRange);
 
@@ -155,7 +160,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed + 2);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed * 5);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * minStrikeSpeed;
@@ -164,7 +169,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() + 2);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() * 5);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * ballsHit[i].GetComponent<Ball>().GetSpeed();
@@ -197,6 +202,7 @@ public class PlayerController : MonoBehaviour
         if (dodgePressed && CanDodge())
         {
             dodgeActive = true;
+            dodgeTrail.enabled = true;
 
             gameObject.layer = LayerMask.NameToLayer("Intangible");
             collider.gameObject.layer = LayerMask.NameToLayer("Intangible");
@@ -253,6 +259,7 @@ public class PlayerController : MonoBehaviour
 
         gameObject.layer = LayerMask.NameToLayer("Player");
         collider.gameObject.layer = LayerMask.NameToLayer("Player");
+        dodgeTrail.enabled = false;
     }
 
     bool CanStrike()
@@ -283,6 +290,16 @@ public class PlayerController : MonoBehaviour
     {
         knockbackActive = true;
 
+
+        //if (direction.x > 0)
+        //{
+        //    transform.DOPunchRotation(new Vector3(0, 0, 60), knockbackStunLength, 4);
+        //}
+        //else if (direction.x < 0)
+        //{
+        //    transform.DOPunchRotation(new Vector3(0, 0, -60), knockbackStunLength, 4);
+        //}
+
         StartCoroutine(Knockback(direction * initKnockSpeed));
     }
 
@@ -305,6 +322,15 @@ public class PlayerController : MonoBehaviour
     {
         Vector2 startVel = initKnockVel;
         float elaspedTime = 0;
+
+        if (startVel.x > 0)
+        {
+            transform.DOPunchRotation(new Vector3(0, 0, -60), knockbackStunLength, 4);
+        }
+        else if (startVel.x < 0)
+        {
+            transform.DOPunchRotation(new Vector3(0, 0, 60), knockbackStunLength, 4);
+        }
 
         while (elaspedTime <= knockbackStunLength)
         {

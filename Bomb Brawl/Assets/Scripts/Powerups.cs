@@ -32,43 +32,43 @@ public class Powerups : MonoBehaviour
 
     private int powerType;
 
-    private bool powerOnFeild = false;
+    private bool powerOnField = false;
 
     // Update is called once per frame
     void Update()
     {
-        if(!powerOnFeild)
+        if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver())
         {
-            if(SpawnPower())
+            if (!powerOnField)
             {
-                powerupPosition = new Vector2(Random.Range(-14,14), Random.Range(-5,5));
-
-                while(!positionValid)
+                if (SpawnPower())
                 {
-                    for (int i = 0; i< players.Count; i++)
+                    powerupPosition = new Vector2(Random.Range(-14, 14), Random.Range(-5, 5));
+
+                    while (!positionValid)
                     {
-                        if (Vector2.Distance(powerupPosition, players[i].transform.position) < 3)
+                        for (int i = 0; i < players.Count; i++)
                         {
-                            positionValid = false;
-                            continue;
+                            if (Vector2.Distance(powerupPosition, players[i].transform.position) < 6)
+                            {
+                                positionValid = false;
+                                continue;
+                            }
+
+                            positionValid = true;
                         }
-
-                        positionValid = true;
                     }
+
+                    powerType = Random.Range(1, 4);
+                    Spawn(powerType);
                 }
-
-                powerType = Random.Range(1,4);
-                Spawn(powerType);
-
             }
         }
-        
-
     }
 
-    public void SetPowerOnFeild(bool state)
+    public void SetPowerOnField(bool state)
     {
-        powerOnFeild = state;
+        powerOnField = state;
     }
 
     private bool SpawnPower()
@@ -85,8 +85,8 @@ public class Powerups : MonoBehaviour
   
     private void Spawn(int type)
     {
-        Instantiate(powers[type-1], powerupPosition, Quaternion.identity, transform);
-        powerOnFeild = true;
+        Instantiate(powers[type-1], powerupPosition, Quaternion.identity);
+        powerOnField = true;
     }
 
     public void Effect(GameObject player)

@@ -12,12 +12,14 @@ public class Ball : MonoBehaviour
     Rigidbody2D body;
     SpriteRenderer sprite;
     CircleCollider2D col;
+    TrailRenderer trail;
     // Start is called before the first frame update
     void Start()
     {
         body = GetComponent<Rigidbody2D>();
         sprite = GetComponent<SpriteRenderer>();
         col = GetComponent<CircleCollider2D>();
+        trail = GetComponentInChildren<TrailRenderer>();
     }
 
     // Update is called once per frame
@@ -38,6 +40,7 @@ public class Ball : MonoBehaviour
     {
         sprite.enabled = false;
         col.enabled = false;
+        trail.enabled = false;
         body.velocity = Vector2.zero;
 
         yield return new WaitForSeconds(3);
@@ -70,6 +73,7 @@ public class Ball : MonoBehaviour
 
         sprite.enabled = true;
         col.enabled = true;
+        trail.enabled = true;
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
