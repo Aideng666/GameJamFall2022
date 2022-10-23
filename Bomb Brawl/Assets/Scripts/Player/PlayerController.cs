@@ -160,7 +160,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed * 5);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed * 50);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * minStrikeSpeed;
@@ -169,7 +169,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() * 5);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() * 10);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * ballsHit[i].GetComponent<Ball>().GetSpeed();

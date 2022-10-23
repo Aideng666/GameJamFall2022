@@ -7,6 +7,7 @@ public class GameManager : MonoBehaviour
 {
     [SerializeField] List<PlayerController> players = new List<PlayerController>();
     [SerializeField] List<Ball> balls = new List<Ball>();
+    [SerializeField] List<FuseTimer> fuses = new List<FuseTimer>();
     [SerializeField] float startingFuseDuration;
 
     bool gameOver = false;
@@ -49,6 +50,9 @@ public class GameManager : MonoBehaviour
 
                 players[0].transform.position = new Vector3(-5, 0, 0);
                 players[1].transform.position = new Vector3(5, 0, 0);
+
+                fuses[0].RestartFuse();
+                fuses[1].RestartFuse();
 
                 players[0].ModifyFuseDuration(startingFuseDuration - players[0].GetFuseDuration());
                 players[1].ModifyFuseDuration(startingFuseDuration - players[1].GetFuseDuration());
@@ -93,8 +97,8 @@ public class GameManager : MonoBehaviour
                 }
 
                 players[i].ModifyFuseDuration(-Time.deltaTime);
-                p1HP.text = players[0].GetFuseDuration().ToString("0");
-                p2HP.text = players[1].GetFuseDuration().ToString("0");
+                //p1HP.text = players[0].GetFuseDuration().ToString("0");
+                //p2HP.text = players[1].GetFuseDuration().ToString("0");
             }
         }
     }
