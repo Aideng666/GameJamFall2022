@@ -37,4 +37,9 @@ public class AnimationManager : MonoBehaviour
     {
         playerAnimators[playerNum - 1].SetTrigger("Death");
     }
+
+    public void Restart(int playerNum)
+    {
+        playerAnimators[playerNum - 1].SetTrigger("Restart");
+    }
 }

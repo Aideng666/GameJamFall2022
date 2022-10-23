@@ -36,23 +36,22 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (fuseDuration <= 0 && !isDead)
+        if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver())
         {
-            Die();
+            if (fuseDuration <= 0 && !isDead)
+            {
+                Die();
+            }
+
+            if (!knockbackActive && !dodgeActive && !isDead)
+            {
+                Move();
+
+                CheckStrike();
+
+                CheckDodge();
+            }
         }
-
-        if (!knockbackActive && !dodgeActive && !isDead)
-        {
-            Move();
-
-            CheckStrike();
-
-            CheckDodge();
-        }
-
-        fuseDuration -= Time.deltaTime;
-
-        print(fuseDuration);
     }
 
     void Move()
@@ -278,6 +277,16 @@ public class PlayerController : MonoBehaviour
     public void ModifyFuseDuration(float amount)
     {
         fuseDuration += amount;
+    }
+
+    public bool GetIsdead()
+    {
+        return isDead;
+    }
+
+    public float GetFuseDuration()
+    {
+        return fuseDuration;
     }
 
     IEnumerator Knockback(Vector2 initKnockVel)
