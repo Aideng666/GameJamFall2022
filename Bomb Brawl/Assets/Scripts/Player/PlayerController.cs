@@ -232,6 +232,7 @@ public class PlayerController : MonoBehaviour
             collider.gameObject.layer = LayerMask.NameToLayer("Intangible");
 
             Vector2 dodgeDirection = (body.velocity).normalized;
+            AudioManager.Instance.Play("Dodge");
 
             StartCoroutine(Dodge(dodgeDirection * (moveSpeed * 3)));
         }
@@ -278,7 +279,6 @@ public class PlayerController : MonoBehaviour
 
             yield return null;
         }
-        AudioManager.Instance.Play("Dodge");
 
         dodgeActive = false;
 
