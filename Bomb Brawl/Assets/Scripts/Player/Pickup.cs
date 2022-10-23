@@ -13,6 +13,7 @@ public class Pickup : MonoBehaviour
             Powerups.instance.Effect(transform.parent.gameObject);
             Powerups.instance.SetPowerOnField(false);
             Instantiate(effectObj, other.transform.position, Quaternion.identity);
+            AudioManager.Instance.Play("Pick");
             Destroy(other.gameObject);
         }
     }
