@@ -69,6 +69,13 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   playerNum: 1
   moveSpeed: 12
+  minStrikeSpeed: 6
+  strikeDelay: 1
+  strikeRange: 2.5
+  dodgeDelay: 1
+  knockbackStunLength: 0.5
+  dodgeDuration: 1
+  fuseDuration: 60
 --- !u!1 &7801273898453338855
 GameObject:
   m_ObjectHideFlags: 0
@@ -81,6 +88,7 @@ GameObject:
   - component: {fileID: 7661156445227633453}
   - component: {fileID: 665397438923520194}
   - component: {fileID: 3537329436751050002}
+  - component: {fileID: 5261066541746031738}
   m_Layer: 0
   m_Name: Bomb_Front_Walk_0
   m_TagString: Untagged
@@ -191,3 +199,15 @@ Animator:
   m_HasTransformHierarchy: 1
   m_AllowConstantClipSamplingOptimization: 1
   m_KeepAnimatorControllerStateOnDisable: 0
+--- !u!114 &5261066541746031738
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 7801273898453338855}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1c7be3255d24bca419aac83fff1b34a1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
