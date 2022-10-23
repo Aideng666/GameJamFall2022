@@ -14,6 +14,8 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image spaceToStartImage;
     [SerializeField] Image winnerImage;
 
+    [SerializeField] GameObject gameOverPanel;
+
     float pulseDelay = 1;
     float timeToNextPulse = 0;
 
@@ -51,12 +53,10 @@ public class UIManager : MonoBehaviour
 
     public void GameOverScreen(int playerNum)
     {
-        winnerImage.sprite = winnerImages[playerNum];
-
+        gameOverPanel.SetActive(true);
         winnerImage.enabled = true;
-        playAgainImage.enabled = true;
-        spaceToStartImage.enabled = false;
-        countdownImage.enabled = false;
+        winnerImage.sprite = winnerImages[playerNum];   
+        playAgainImage.enabled = true;   
     }
 
     public void NewGameScreen()
@@ -64,12 +64,10 @@ public class UIManager : MonoBehaviour
         winnerImage.enabled = false;
         playAgainImage.enabled = false;
         spaceToStartImage.enabled = true;
-        countdownImage.enabled = false;
     }
 
     public void StartCountdown()
     {
-        countdownImage.enabled = true;
         winnerImage.enabled = false;
         playAgainImage.enabled = false;
         spaceToStartImage.enabled = false;
@@ -106,12 +104,12 @@ public class UIManager : MonoBehaviour
         countdownImage.DOFade(1, 0);
         countdownImage.sprite = countdownImages[3];
         countdownImage.transform.DOPunchPosition(new Vector3(0, 5, 0), 0.5f, 6);
-        countdownImage.transform.DOPunchScale(new Vector3(2, 0.5f, 1), 1, 4);
+        countdownImage.transform.DOPunchScale(new Vector3(5, 1, 1), 1, 4);
         countdownImage.DOFade(0, 1);
 
         GameManager.Instance.SetGameStarted(true);
 
-        yield return new WaitForSeconds(1);
+        yield return new WaitForSeconds(5);
 
         countdownImage.enabled = false;
     }

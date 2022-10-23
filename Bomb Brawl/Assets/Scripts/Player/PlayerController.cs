@@ -16,6 +16,8 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float fuseDuration = 60f;
     [SerializeField] float dodgeFuseDepletionAmount = 1;
 
+    [SerializeField] bool powerStrike = false;
+
     Rigidbody2D body;
     CircleCollider2D collider;
 
@@ -151,10 +153,20 @@ public class PlayerController : MonoBehaviour
 
                 if (ballsHit[i].GetComponent<Rigidbody2D>().velocity.magnitude < minStrikeSpeed)
                 {
+                    if(powerStrike)
+                    {
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed + 2);
+                        powerStrike = false;
+                    }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * minStrikeSpeed;
                 }
                 else
                 {
+                    if(powerStrike)
+                    {
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() + 2);
+                        powerStrike = false;
+                    }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * ballsHit[i].GetComponent<Ball>().GetSpeed();
                 }
             }
@@ -313,5 +325,27 @@ public class PlayerController : MonoBehaviour
         Gizmos.color = Color.red;
 
         //Gizmos.DrawWireSphere(transform.position, 2);
+    }
+
+    IEnumerator SpeedBoost()
+    {
+        moveSpeed +=4;
+        yield return new WaitForSeconds(10.0f);
+        moveSpeed -=4; 
+    }
+
+    public void GrantSpeedBoost()
+    {
+        StartCoroutine(SpeedBoost());
+    }
+
+    public void GrantTimeBoost()
+    {
+        fuseDuration += 10;
+    }
+
+    public void GrantStrengthBoost()
+    {
+        powerStrike = true;
     }
 }
