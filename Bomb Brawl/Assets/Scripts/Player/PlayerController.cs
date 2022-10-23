@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
     [SerializeField] float knockbackStunLength = 0.5f;
     [SerializeField] float dodgeDuration = 1f;
     [SerializeField] float fuseDuration = 60f;
+    [SerializeField] float dodgeFuseDepletionAmount = 1;
 
     [SerializeField] bool powerStrike = false;
 
@@ -25,6 +26,7 @@ public class PlayerController : MonoBehaviour
 
     bool knockbackActive = false;
     bool dodgeActive = false;
+    bool isDead;
 
     // Start is called before the first frame update
     void Start()
@@ -36,24 +38,21 @@ public class PlayerController : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (!knockbackActive && !dodgeActive)
+        if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver())
         {
-            Move();
+            if (fuseDuration <= 0 && !isDead)
+            {
+                Die();
+            }
 
-            CheckStrike();
+            if (!knockbackActive && !dodgeActive && !isDead)
+            {
+                Move();
 
-            CheckDodge();
-        }
+                CheckStrike();
 
-        if (dodgeActive)
-        {
-            //collider.enabled = false;
-            //collider.gameObject.layer = LayerMask.NameToLayer("Intangible");
-        }
-        else
-        {
-            collider.gameObject.layer = LayerMask.NameToLayer("Player");
-            //collider.enabled = true;
+                CheckDodge();
+            }
         }
     }
 
@@ -205,9 +204,16 @@ public class PlayerController : MonoBehaviour
             Vector2 dodgeDirection = (body.velocity).normalized;
 
             StartCoroutine(Dodge(dodgeDirection * (moveSpeed * 3)));
-
-            //transform.DOBlendableRotateBy(new Vector3(0, 0, 360), dodgeDuration);
         }
+    }
+
+    void Die()
+    {
+        AnimationManager.Instance.Death(playerNum);
+
+        print($"Player {playerNum} Has Exploded!");
+
+        isDead = true;
     }
 
     IEnumerator Dodge(Vector2 dodgeVel)
@@ -216,6 +222,8 @@ public class PlayerController : MonoBehaviour
         {
             dodgeVel = new Vector2(0, -1f) * (moveSpeed * 3);
         }
+
+        ModifyFuseDuration(-dodgeFuseDepletionAmount);
 
         Vector2 startVel = dodgeVel;
 
@@ -278,6 +286,21 @@ public class PlayerController : MonoBehaviour
         StartCoroutine(Knockback(direction * initKnockSpeed));
     }
 
+    public void ModifyFuseDuration(float amount)
+    {
+        fuseDuration += amount;
+    }
+
+    public bool GetIsdead()
+    {
+        return isDead;
+    }
+
+    public float GetFuseDuration()
+    {
+        return fuseDuration;
+    }
+
     IEnumerator Knockback(Vector2 initKnockVel)
     {
         Vector2 startVel = initKnockVel;
@@ -295,11 +318,6 @@ public class PlayerController : MonoBehaviour
         knockbackActive = false;
 
         yield return null;
-    }
-
-    private void OnCollisionEnter2D(Collision2D collision)
-    {
-        
     }
 
     private void OnDrawGizmos()

@@ -32,4 +32,14 @@ public class AnimationManager : MonoBehaviour
     {
         playerAnimators[playerNum - 1].SetBool("Right", isWalking);
     }
+
+    public void Death(int playerNum)
+    {
+        playerAnimators[playerNum - 1].SetTrigger("Death");
+    }
+
+    public void Restart(int playerNum)
+    {
+        playerAnimators[playerNum - 1].SetTrigger("Restart");
+    }
 }
