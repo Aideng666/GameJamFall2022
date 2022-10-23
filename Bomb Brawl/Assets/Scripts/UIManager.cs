@@ -36,7 +36,10 @@ public class UIManager : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        
+        if (CanPulse())
+        {
+            spaceToStartImage.transform.DOPunchScale(new Vector3(0.2f, 0.2f, 0.2f), 0.95f, 2);
+        }
     }
 
     bool CanPulse()
