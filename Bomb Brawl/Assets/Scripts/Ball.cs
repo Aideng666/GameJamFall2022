@@ -83,7 +83,7 @@ public class Ball : MonoBehaviour
             Camera.main.transform.DOShakePosition(0.4f, 1f, 8, 90);
 
             collision.gameObject.GetComponentInParent<PlayerController>().ModifyFuseDuration(-fuseDepletionAmount);
-
+            AudioManager.Instance.Play("Hit");
             StartCoroutine(ResetBall());
         }
     }

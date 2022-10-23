@@ -46,6 +46,28 @@ public class PlayerController : MonoBehaviour
         {
             if (fuseDuration <= 0 && !isDead)
             {
+                int rand = Random.Range(0, 5);
+                switch (rand)
+                {
+                    case 1:
+                        AudioManager.Instance.Play("kapu1");
+                        break;
+                    case 2:
+                        AudioManager.Instance.Play("kapu2");
+                        break;
+                    case 3:
+                        AudioManager.Instance.Play("Die");
+                        break;
+                    case 4:
+                        AudioManager.Instance.Play("Party");
+                        break;
+                    case 0:
+                        AudioManager.Instance.Play("Win");
+                        break;
+
+
+
+                }
                 Die();
             }
 
@@ -176,6 +198,8 @@ public class PlayerController : MonoBehaviour
                 }
             }
 
+            AudioManager.Instance.Play("Strike");
+
             //Strikes players that were hit
             for (int i = 0; i < playersHit.Count; i++)
             {
@@ -216,6 +240,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         AnimationManager.Instance.Death(playerNum);
+        
 
         print($"Player {playerNum} Has Exploded!");
 
@@ -224,6 +249,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dodge(Vector2 dodgeVel)
     {
+
         if (dodgeVel.magnitude == 0)
         {
             dodgeVel = new Vector2(0, -1f) * (moveSpeed * 3);
@@ -252,10 +278,12 @@ public class PlayerController : MonoBehaviour
 
             yield return null;
         }
+        AudioManager.Instance.Play("Dodge");
 
         dodgeActive = false;
 
         yield return null;
+
 
         gameObject.layer = LayerMask.NameToLayer("Player");
         collider.gameObject.layer = LayerMask.NameToLayer("Player");
