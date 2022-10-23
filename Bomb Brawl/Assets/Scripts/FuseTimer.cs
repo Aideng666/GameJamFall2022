@@ -6,73 +6,62 @@ using TMPro;
 public class FuseTimer : MonoBehaviour
 {
     [SerializeField]
-    private Transform fuseStart, fuseFinish, fuseSpark, boom;
+    private Transform fuseStart, fuseFinish, fuseSpark;
 
     private LineRenderer lineRend;
 
     public float fuseDuration;
 
-    public TMP_Text fuseDurationText;
+    private bool coroutineStart = false;
 
     // Start is called before the first frame update
     void Start()
     {
-        fuseDuration = 10f;
+        fuseDuration = 60f;
 
         lineRend = GetComponent<LineRenderer>();
-        lineRend.positionCount = 2;
+        lineRend.positionCount = 2; 
         lineRend.SetPosition(0, new Vector2(fuseStart.position.x, fuseStart.position.y));
         lineRend.SetPosition(1, new Vector2(fuseFinish.position.x, fuseFinish.position.y));
         fuseSpark.position = new Vector3(fuseStart.position.x, fuseStart.position.y, 0f);
-        fuseSpark.gameObject.SetActive(false);
-        boom.position = transform.position;
-        boom.gameObject.SetActive(false);
     }
 
     // Update is called once per frame
     void Update()
     {
-                 
-        StartCoroutine(Explode());
-        
-        fuseDurationText.text = fuseDuration.ToString("0");
-        fuseDuration -= Time.deltaTime;
-
-        if (fuseDuration <= 0)
+        if (GameManager.Instance.GetGameStarted())
         {
-            fuseSpark.gameObject.SetActive(false);
-            boom.gameObject.SetActive(true);
-            Destroy(boom.gameObject, 0.5f);       
-            Destroy(gameObject);
+           
+            fuseDuration -= Time.deltaTime;
+            if (!coroutineStart)
+            {
+                StartCoroutine(Explode());
+            }
+          
+            coroutineStart = true;      
         }
-
-        if (Input.GetKeyDown(KeyCode.Y))
-        {
-            fuseDuration += 10f;
-        }
+           
     }
 
-    private IEnumerator MoveOverSeconds(GameObject objectToMove, Vector3 end, float seconds)
+    private IEnumerator MoveOverSeconds(GameObject objectToMove, Vector3 endPos)
     {
         float elapsedTime = 0;
         Vector3 startingPos = objectToMove.transform.position;
 
-        while (elapsedTime < seconds)
+        while (elapsedTime < fuseDuration)
         {
-            objectToMove.transform.position = Vector3.Lerp(startingPos, end, (elapsedTime / seconds));
+            objectToMove.transform.position = Vector3.Lerp(startingPos, endPos, (elapsedTime / fuseDuration));
             elapsedTime += Time.deltaTime;
-            yield return new WaitForEndOfFrame();
+            yield return null;
         }
 
-        objectToMove.transform.position = end;
+        //objectToMove.transform.position = endPos;
     }
     private IEnumerator Explode()
     {
-        fuseSpark.gameObject.SetActive(true);   
-
         while (fuseStart.position.x <= fuseFinish.position.x)
         {
-            StartCoroutine(MoveOverSeconds(fuseStart.gameObject, fuseFinish.position, fuseDuration));
+            StartCoroutine(MoveOverSeconds(fuseStart.gameObject, fuseFinish.position));
 
             lineRend.SetPosition(0, new Vector2(fuseStart.position.x, fuseStart.position.y));
             fuseSpark.position = new Vector3(fuseStart.position.x, fuseStart.position.y, 0f);
