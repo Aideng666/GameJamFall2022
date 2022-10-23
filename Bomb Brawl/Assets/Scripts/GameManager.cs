@@ -1,7 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro;
 
 public class GameManager : MonoBehaviour
 {
@@ -11,8 +10,6 @@ public class GameManager : MonoBehaviour
 
     bool gameOver = false;
     bool gameStarted;
-
-    [SerializeField] TMP_Text p1HP, p2HP;
 
     public static GameManager Instance { get; set; }
 
@@ -93,8 +90,6 @@ public class GameManager : MonoBehaviour
                 }
 
                 players[i].ModifyFuseDuration(-Time.deltaTime);
-                p1HP.text = players[0].GetFuseDuration().ToString("0");
-                p2HP.text = players[1].GetFuseDuration().ToString("0");
             }
         }
     }
