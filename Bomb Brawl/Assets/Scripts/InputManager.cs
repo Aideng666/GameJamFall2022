@@ -13,6 +13,7 @@ public class InputManager : MonoBehaviour
     InputAction moveAction2;
     InputAction strikeAction2;
     InputAction dodgeAction2;
+    InputAction playAgainAction;
 
     public static InputManager Instance { get; set; }
 
@@ -28,6 +29,7 @@ public class InputManager : MonoBehaviour
         moveAction2 = playerInput.actions["Move2"];
         strikeAction2 = playerInput.actions["Strike2"];
         dodgeAction2 = playerInput.actions["Dodge2"];
+        playAgainAction = playerInput.actions["PlayAgain"];
     }
 
     public Vector2 Move1()
@@ -58,5 +60,10 @@ public class InputManager : MonoBehaviour
     public bool Dodge2()
     {
         return dodgeAction2.triggered;
+    }
+
+    public bool PlayAgain()
+    {
+        return playAgainAction.triggered;
     }
 }
