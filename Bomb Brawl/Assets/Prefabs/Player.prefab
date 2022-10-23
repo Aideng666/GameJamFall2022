@@ -76,6 +76,8 @@ MonoBehaviour:
   knockbackStunLength: 0.5
   dodgeDuration: 1
   fuseDuration: 60
+  dodgeFuseDepletionAmount: 1
+  powerStrike: 0
 --- !u!1 &7801273898453338855
 GameObject:
   m_ObjectHideFlags: 0
@@ -211,3 +213,4 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c7be3255d24bca419aac83fff1b34a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  effect: {fileID: 4844135747437650150, guid: d91ebaf161b94c3439fd5c2943826449, type: 3}

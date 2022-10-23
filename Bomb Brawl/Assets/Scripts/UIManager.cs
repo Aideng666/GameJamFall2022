@@ -14,8 +14,6 @@ public class UIManager : MonoBehaviour
     [SerializeField] Image spaceToStartImage;
     [SerializeField] Image winnerImage;
 
-    [SerializeField] GameObject gameOverPanel;
-
     float pulseDelay = 1;
     float timeToNextPulse = 0;
 
@@ -53,10 +51,12 @@ public class UIManager : MonoBehaviour
 
     public void GameOverScreen(int playerNum)
     {
-        gameOverPanel.SetActive(true);
+        winnerImage.sprite = winnerImages[playerNum];
+
         winnerImage.enabled = true;
-        winnerImage.sprite = winnerImages[playerNum];   
-        playAgainImage.enabled = true;   
+        playAgainImage.enabled = true;
+        spaceToStartImage.enabled = false;
+        //countdownImage.enabled = false;
     }
 
     public void NewGameScreen()
@@ -64,10 +64,12 @@ public class UIManager : MonoBehaviour
         winnerImage.enabled = false;
         playAgainImage.enabled = false;
         spaceToStartImage.enabled = true;
+        //countdownImage.enabled = false;
     }
 
     public void StartCountdown()
     {
+        //countdownImage.enabled = true;
         winnerImage.enabled = false;
         playAgainImage.enabled = false;
         spaceToStartImage.enabled = false;
