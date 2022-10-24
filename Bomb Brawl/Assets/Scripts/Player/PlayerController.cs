@@ -46,6 +46,28 @@ public class PlayerController : MonoBehaviour
         {
             if (fuseDuration <= 0 && !isDead)
             {
+                int rand = Random.Range(0, 5);
+                switch (rand)
+                {
+                    case 1:
+                        AudioManager.Instance.Play("kapu1");
+                        break;
+                    case 2:
+                        AudioManager.Instance.Play("kapu2");
+                        break;
+                    case 3:
+                        AudioManager.Instance.Play("Die");
+                        break;
+                    case 4:
+                        AudioManager.Instance.Play("Party");
+                        break;
+                    case 0:
+                        AudioManager.Instance.Play("Win");
+                        break;
+
+
+
+                }
                 Die();
             }
 
@@ -160,7 +182,7 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed * 5);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (minStrikeSpeed * 50);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * minStrikeSpeed;
@@ -169,12 +191,14 @@ public class PlayerController : MonoBehaviour
                 {
                     if(powerStrike)
                     {
-                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() * 5);
+                        ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * (ballsHit[i].GetComponent<Ball>().GetSpeed() * 10);
                         powerStrike = false;
                     }
                     ballsHit[i].GetComponent<Rigidbody2D>().velocity = strikeDirection * ballsHit[i].GetComponent<Ball>().GetSpeed();
                 }
             }
+
+            AudioManager.Instance.Play("Strike");
 
             //Strikes players that were hit
             for (int i = 0; i < playersHit.Count; i++)
@@ -208,6 +232,7 @@ public class PlayerController : MonoBehaviour
             collider.gameObject.layer = LayerMask.NameToLayer("Intangible");
 
             Vector2 dodgeDirection = (body.velocity).normalized;
+            AudioManager.Instance.Play("Dodge");
 
             StartCoroutine(Dodge(dodgeDirection * (moveSpeed * 3)));
         }
@@ -216,6 +241,7 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         AnimationManager.Instance.Death(playerNum);
+        
 
         print($"Player {playerNum} Has Exploded!");
 
@@ -224,6 +250,7 @@ public class PlayerController : MonoBehaviour
 
     IEnumerator Dodge(Vector2 dodgeVel)
     {
+
         if (dodgeVel.magnitude == 0)
         {
             dodgeVel = new Vector2(0, -1f) * (moveSpeed * 3);
@@ -256,6 +283,7 @@ public class PlayerController : MonoBehaviour
         dodgeActive = false;
 
         yield return null;
+
 
         gameObject.layer = LayerMask.NameToLayer("Player");
         collider.gameObject.layer = LayerMask.NameToLayer("Player");

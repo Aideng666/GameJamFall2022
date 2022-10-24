@@ -34,10 +34,12 @@ public class Powerups : MonoBehaviour
 
     private bool powerOnField = false;
 
+    bool roundStarted = false;
+
     // Update is called once per frame
     void Update()
     {
-        if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver())
+        if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver()/* && roundStarted*/)
         {
             if (!powerOnField)
             {
@@ -63,6 +65,13 @@ public class Powerups : MonoBehaviour
                     Spawn(powerType);
                 }
             }
+
+            //if (!roundStarted)
+            //{
+            //    roundStarted = true;
+
+            //    timeToNextSpawn = Time.time + 5;
+            //}
         }
     }
 
