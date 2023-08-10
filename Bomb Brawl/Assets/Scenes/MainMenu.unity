@@ -1605,7 +1605,7 @@ MonoBehaviour:
   sounds:
   - _clip: {fileID: 8300000, guid: 4305dd15709df51468213308c03e477a, type: 3}
     name: MainMenu
-    _volume: 1
+    _volume: 0.8
     _pitch: 1
     _loop: 1
     source: {fileID: 0}
@@ -1617,6 +1617,60 @@ MonoBehaviour:
     source: {fileID: 0}
   - _clip: {fileID: 8300000, guid: 6ca71089fb9db684bb17d82bf779a2f9, type: 3}
     name: Cancel
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: 483c6680bceaccd478180348b98eaa2a, type: 3}
+    name: Dodge
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: b930919fec6e9fd42860b7f1b8997402, type: 3}
+    name: Strike
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: 06b42013b46b6be4ba2f4ac373bbec9c, type: 3}
+    name: Pick
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: f624ea83d5ffc7648a48267f0f83068a, type: 3}
+    name: kapu1
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: a0d9c77b76a573a45b14f53f34682c49, type: 3}
+    name: kapu2
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: c3e9817d49de43148ae601a197aeed86, type: 3}
+    name: Die
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: a5beb526b9bf6ea428c8e33b676261f5, type: 3}
+    name: Party
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: 67e32813cbf5da7498b4c2cbc07595bd, type: 3}
+    name: Win
+    _volume: 1
+    _pitch: 1
+    _loop: 0
+    source: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: c1e09543908b76d4591e62ae5bec33fa, type: 3}
+    name: Hit
     _volume: 1
     _pitch: 1
     _loop: 0
