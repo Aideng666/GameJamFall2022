@@ -1,7 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using TMPro; 
+using TMPro;
+using UnityEngine.UI;
 
 public class FuseTimer : MonoBehaviour
 {
@@ -10,7 +11,7 @@ public class FuseTimer : MonoBehaviour
 
     [SerializeField] PlayerController attachedPlayer;
 
-    private LineRenderer lineRend;
+    [SerializeField] Image fuseImage;
 
     float defaultFuseDuration;
 
@@ -20,10 +21,8 @@ public class FuseTimer : MonoBehaviour
     void Start()
     {
         defaultFuseDuration = attachedPlayer.GetFuseDuration();
-
         currentFuseDuration = defaultFuseDuration;
 
-        lineRend = GetComponent<LineRenderer>();
         fuseSpark.position = fuseStart.position;
     }
 
@@ -34,9 +33,8 @@ public class FuseTimer : MonoBehaviour
 
         if (GameManager.Instance.GetGameStarted() && !GameManager.Instance.GetGameOver())
         {
-            fuseSpark.position = Vector3.Lerp(fuseFinish.position, fuseStart.position, (currentFuseDuration / defaultFuseDuration));
-
-            lineRend.SetPosition(1, new Vector3(lineRend.GetPosition(1).x, fuseSpark.position.y, 0));
+            fuseSpark.position = Vector3.Lerp(fuseFinish.position, fuseStart.position, currentFuseDuration / defaultFuseDuration);
+            fuseImage.fillAmount = Mathf.Lerp(0, 1, currentFuseDuration / defaultFuseDuration);
 
             currentFuseDuration -= Time.deltaTime;    
         }

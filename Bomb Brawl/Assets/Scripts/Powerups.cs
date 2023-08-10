@@ -45,16 +45,16 @@ public class Powerups : MonoBehaviour
             {
                 if (SpawnPower())
                 {
-                    powerupPosition = new Vector2(Random.Range(-14, 14), Random.Range(-5, 5));
-
                     while (!positionValid)
                     {
+                        powerupPosition = new Vector2(Random.Range(-14, 14), Random.Range(-5, 5));
+
                         for (int i = 0; i < players.Count; i++)
                         {
-                            if (Vector2.Distance(powerupPosition, players[i].transform.position) < 6)
+                            if (Vector2.Distance(powerupPosition, players[i].transform.position) < 5)
                             {
                                 positionValid = false;
-                                continue;
+                                break;
                             }
 
                             positionValid = true;
