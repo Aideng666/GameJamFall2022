@@ -5,7 +5,7 @@ using UnityEngine;
 public class MenuBGM : MonoBehaviour
 {
     // Start is called before the first frame update
-    void Start()
+    /*void Start()
     {
         if (!AudioManager.Instance.IsPlaying("Menu") && !AudioManager.Instance.IsPlaying("Menu"))
         {
@@ -33,5 +33,5 @@ public class MenuBGM : MonoBehaviour
     {
         AudioManager.Instance.Play("Start");
         AudioManager.Instance.Stop("Menu");
-    }
+    }*/
 }

@@ -608,7 +608,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 425736282}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 219ad34cd08c3e64cb279f21186598d9, type: 2}
   m_CullingMode: 0
@@ -1411,7 +1411,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1264880074}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 219ad34cd08c3e64cb279f21186598d9, type: 2}
   m_CullingMode: 0
@@ -1469,8 +1469,8 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 2073265713}
         m_TargetAssemblyTypeName: SceneController, Assembly-CSharp
-        m_MethodName: Quit
-        m_Mode: 1
+        m_MethodName: LoadScene
+        m_Mode: 3
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
@@ -2618,71 +2618,71 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: 19872ae80f2b83847b73a3cd969fe620, type: 3}
+  - _clip: {fileID: 0}
     name: BGaMe
-    volume: 0.15
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 06b42013b46b6be4ba2f4ac373bbec9c, type: 3}
+  - _clip: {fileID: 0}
     name: Pick
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c1e09543908b76d4591e62ae5bec33fa, type: 3}
+  - _clip: {fileID: 0}
     name: Hit
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 483c6680bceaccd478180348b98eaa2a, type: 3}
+  - _clip: {fileID: 0}
     name: Dodge
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: b930919fec6e9fd42860b7f1b8997402, type: 3}
+  - _clip: {fileID: 0}
     name: Strike
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: f624ea83d5ffc7648a48267f0f83068a, type: 3}
+  - _clip: {fileID: 0}
     name: kapu1
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: a0d9c77b76a573a45b14f53f34682c49, type: 3}
+  - _clip: {fileID: 0}
     name: kapu2
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 67e32813cbf5da7498b4c2cbc07595bd, type: 3}
+  - _clip: {fileID: 0}
     name: Win
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: a5beb526b9bf6ea428c8e33b676261f5, type: 3}
+  - _clip: {fileID: 0}
     name: Party
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c3e9817d49de43148ae601a197aeed86, type: 3}
+  - _clip: {fileID: 0}
     name: Die
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: c1e09543908b76d4591e62ae5bec33fa, type: 3}
+  - _clip: {fileID: 0}
     name: Hit
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+    _volume: 0
+    _pitch: 0
+    _loop: 0
     source: {fileID: 0}
 --- !u!4 &1691219320
 Transform:

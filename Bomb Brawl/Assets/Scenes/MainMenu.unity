@@ -779,7 +779,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 1, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -45.200012, y: -35.699997}
+  m_AnchoredPosition: {x: -45.19995, y: -35.700012}
   m_SizeDelta: {x: 36.703888, y: 34.423004}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &451811565
@@ -1038,18 +1038,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 1
         m_CallState: 2
-      - m_Target: {fileID: 1518654059}
-        m_TargetAssemblyTypeName: MenuBGM, Assembly-CSharp
-        m_MethodName: ClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 1
-        m_CallState: 2
 --- !u!114 &933498505
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1096,7 +1084,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 933498502}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 219ad34cd08c3e64cb279f21186598d9, type: 2}
   m_CullingMode: 0
@@ -1422,18 +1410,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1518654059}
-        m_TargetAssemblyTypeName: MenuBGM, Assembly-CSharp
-        m_MethodName: ClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1196998095
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1480,7 +1456,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196998092}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 219ad34cd08c3e64cb279f21186598d9, type: 2}
   m_CullingMode: 0
@@ -1664,18 +1640,6 @@ MonoBehaviour:
           m_StringArgument: 
           m_BoolArgument: 0
         m_CallState: 2
-      - m_Target: {fileID: 1518654059}
-        m_TargetAssemblyTypeName: MenuBGM, Assembly-CSharp
-        m_MethodName: ClickSound
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
 --- !u!114 &1410386603
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1722,7 +1686,7 @@ Animator:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1410386600}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Avatar: {fileID: 0}
   m_Controller: {fileID: 9100000, guid: 219ad34cd08c3e64cb279f21186598d9, type: 2}
   m_CullingMode: 0
@@ -1744,7 +1708,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1518654058}
   - component: {fileID: 1518654057}
-  - component: {fileID: 1518654059}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -1765,23 +1728,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sounds:
-  - clip: {fileID: 8300000, guid: 7a3ec0dfbbad4d745bef585d0d2aa77b, type: 3}
-    name: Menu
-    volume: 0.15
-    pitch: 1
-    group: {fileID: 0}
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 674da5f65be751f4caed023e7297a731, type: 3}
-    name: Click
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
-    source: {fileID: 0}
-  - clip: {fileID: 8300000, guid: 6ca71089fb9db684bb17d82bf779a2f9, type: 3}
-    name: Select
-    volume: 0.5
-    pitch: 1
-    group: {fileID: 0}
+  - _clip: {fileID: 8300000, guid: 4305dd15709df51468213308c03e477a, type: 3}
+    name: MainMenu
+    _volume: 1
+    _pitch: 1
+    _loop: 1
     source: {fileID: 0}
 --- !u!4 &1518654058
 Transform:
@@ -1798,18 +1749,6 @@ Transform:
   m_Father: {fileID: 0}
   m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!114 &1518654059
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1518654056}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: db29b604c2e6d3344b91bd503ccf15e2, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1556600999
 GameObject:
   m_ObjectHideFlags: 0
