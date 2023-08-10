@@ -241,9 +241,6 @@ public class PlayerController : MonoBehaviour
     void Die()
     {
         AnimationManager.Instance.Death(playerNum);
-        
-
-        print($"Player {playerNum} Has Exploded!");
 
         isDead = true;
     }
@@ -317,16 +314,6 @@ public class PlayerController : MonoBehaviour
     public void ApplyKnockback(Vector2 direction, float initKnockSpeed)
     {
         knockbackActive = true;
-
-
-        //if (direction.x > 0)
-        //{
-        //    transform.DOPunchRotation(new Vector3(0, 0, 60), knockbackStunLength, 4);
-        //}
-        //else if (direction.x < 0)
-        //{
-        //    transform.DOPunchRotation(new Vector3(0, 0, -60), knockbackStunLength, 4);
-        //}
 
         StartCoroutine(Knockback(direction * initKnockSpeed));
     }

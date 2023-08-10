@@ -12,7 +12,6 @@ public class FuseTimer : MonoBehaviour
     [SerializeField] PlayerController attachedPlayer;
 
     [SerializeField] Image fuseImage;
-    //private LineRenderer lineRend;
 
     float defaultFuseDuration;
 
@@ -22,10 +21,8 @@ public class FuseTimer : MonoBehaviour
     void Start()
     {
         defaultFuseDuration = attachedPlayer.GetFuseDuration();
-
         currentFuseDuration = defaultFuseDuration;
 
-        //lineRend = GetComponent<LineRenderer>();
         fuseSpark.position = fuseStart.position;
     }
 
@@ -38,8 +35,6 @@ public class FuseTimer : MonoBehaviour
         {
             fuseSpark.position = Vector3.Lerp(fuseFinish.position, fuseStart.position, currentFuseDuration / defaultFuseDuration);
             fuseImage.fillAmount = Mathf.Lerp(0, 1, currentFuseDuration / defaultFuseDuration);
-
-            //lineRend.SetPosition(1, new Vector3(lineRend.GetPosition(1).x, fuseSpark.position.y, 0));
 
             currentFuseDuration -= Time.deltaTime;    
         }
